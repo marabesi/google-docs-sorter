@@ -1,8 +1,8 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
+  "name": "Gloogle docs sorter",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
+  "description": "Google docs sorter, easy way to sort your docs by favoriting them",
   "homepage_url": "http://extensionizr.com",
   "icons": {
     "16": "icons/icon16.png",
@@ -13,5 +13,17 @@
   "background": {
     "page": "src/bg/background.html",
     "persistent": true
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://docs.google.com/*",
+        "https://docs.google.com/*"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
 }
